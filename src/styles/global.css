@@ -30,3 +30,8 @@ html {
     text-decoration: underline;
     color: oklch(27% 0.05 217);
   }
+  
+  a.active {
+    text-decoration: underline;
+    color: oklch(27% 0.05 217);
+  }

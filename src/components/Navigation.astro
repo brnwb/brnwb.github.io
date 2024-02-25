@@ -1,6 +1,9 @@
 ---
+const pathname = new URL(Astro.request.url).pathname;
 ---
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/books/">Books</a>
-<a href="/movies/">Movies</a>
+<nav>
+    <a class={pathname === "/" ? "active" : ""} href="/">Home</a>
+    <a class={pathname === "/about/" ? "active" : ""} href="/about/">About</a>
+    <a class={pathname === "/books/" ? "active" : ""} href="/books/">Books</a>
+    <a class={pathname === "/movies/" ? "active" : ""} href="/movies/">Movies</a>
+</nav>
