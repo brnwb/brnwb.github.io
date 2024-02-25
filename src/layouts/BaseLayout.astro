@@ -15,8 +15,14 @@ const { pageTitle } = Astro.props;
         <ViewTransitions />
 	</head>
 	<body>
-		<Navigation />
-		<h1>{pageTitle}</h1>
-        <slot />
+        <div class="with-sidebar">
+            <div>
+                <Navigation />
+            </div>
+            <div>
+                <h1>{pageTitle}</h1>
+                <slot />
+            </div>
+        </div>
 	</body>
 </html>

@@ -1,37 +1,73 @@
+:root {
+  --sidebar-width: 10rem;
+}
+
 html {
     color: oklch(32% 0.11 26.9);
     background-color: oklch(100% 0.00 116);
     font-family: sans-serif;
-  }
+}
   
-  body {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
-    line-height: 1.5;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
-  }
+body {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100ch;
+  padding: 1rem;
+  line-height: 1.5;
+}
 
-  a {
-    text-decoration: none;
-    color: oklch(32% 0.11 26.9);
-  }
+* {
+  box-sizing: border-box;
+}
 
-  a:hover, a:focus, a:active {
-    text-decoration: underline;
-    color: oklch(27% 0.05 217);
-  }
-  
-  a.active {
-    text-decoration: underline;
-    color: oklch(27% 0.05 217);
-  }
+nav {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0 0 1rem;
+}
+
+nav a {
+  width: 100%;
+}
+
+nav a.index {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  margin: 1rem 0;
+  font-size: 2.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: oklch(32% 0.11 26.9);
+}
+
+a:hover, a:focus, a:active {
+  text-decoration: underline;
+  color: oklch(27% 0.05 217);
+}
+
+a.active-link {
+  color: oklch(53.71% 0.19 29.12)
+}
+
+/* Sidebar from Every Layout */
+.with-sidebar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s1);
+}
+
+.with-sidebar > :first-child {
+  flex-basis: var(--sidebar-width);
+  flex-grow: 1;
+}
+
+.with-sidebar > :last-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 50%;
+}

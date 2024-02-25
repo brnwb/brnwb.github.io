@@ -2,8 +2,8 @@
 const pathname = new URL(Astro.request.url).pathname;
 ---
 <nav>
-    <a class={pathname === "/" ? "active" : ""} href="/">Home</a>
-    <a class={pathname === "/about/" ? "active" : ""} href="/about/">About</a>
-    <a class={pathname === "/books/" ? "active" : ""} href="/books/">Books</a>
-    <a class={pathname === "/movies/" ? "active" : ""} href="/movies/">Movies</a>
+    <a class={`index ${pathname === "/" ? "active-link" : ""}`} href="/">Brian Webb</a>
+    <a class={pathname === "/about/" ? "active-link" : ""} href="/about/">About</a>
+    <a class={pathname === "/books/" ? "active-link" : ""} href="/books/">Books</a>
+    <a class={pathname === "/movies/" ? "active-link" : ""} href="/movies/">Movies</a>
 </nav>
