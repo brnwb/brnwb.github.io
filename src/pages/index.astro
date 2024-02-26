@@ -1,17 +1,13 @@
 ---
+import { getEntry } from 'astro:content';
 import BaseLayout from "../layouts/BaseLayout.astro"
+import BlogLink from "../components/BlogLink.astro"
 const pageTitle="Brian Webb"
+
+const recentPost = await getEntry('blog', 'read-seen-2024');
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec accumsan nibh.
-		 Sed eleifend commodo tincidunt. Nam luctus quis lectus quis ultrices. Quisque ultricies mollis 
-		 tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis interdum in enim 
-		 nec venenatis. Quisque suscipit, libero eget elementum bibendum, ipsum eros mollis urna, nec 
-		 aliquam augue orci vel sapien. Nulla vulputate purus vitae ultrices tincidunt. Ut ut mauris risus. 
-		 Pellentesque facilisis lacus in erat pretium efficitur. Quisque lobortis, metus eu bibendum 
-		 sollicitudin, orci leo varius quam, ac tincidunt leo sapien non eros. Proin dignissim elit at ex 
-		 dignissim, vel vehicula nisi sodales. Morbi a ante at sapien accumsan tempus vehicula vitae lorem. 
-		 Pellentesque ut urna euismod, tristique ex a, sagittis urna.
-	</p>
+	<h2>Recently</h2>
+	<BlogLink url={`/blog/${recentPost.slug}`} title={recentPost.data.title}/>
 </BaseLayout>
