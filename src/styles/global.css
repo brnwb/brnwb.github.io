@@ -42,6 +42,11 @@ nav a.index {
   margin-right: 1rem;
 }
 
+/* Last child in .nav-links should not have a right margin to avoid extra spacing */
+.nav-links a:last-child {
+  margin-right: 0;
+}
+
 h1 {
   margin: 1rem 0;
   font-size: 2.5rem;
