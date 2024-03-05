@@ -13,6 +13,7 @@ The Idiot, Elif Batuman (2017)<br />
 ## Movies
 The Holdovers, Alexander Payne (2023)<br />
 Zone of Interest, Jonathan Glazer (2023)<br />
+Dune: Part Two, Denis Villeneuve (2024)<br />
 
 ## Series
 Looking, (2014-2016)
