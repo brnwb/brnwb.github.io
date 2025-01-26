@@ -9,5 +9,5 @@ const recentPost = await getEntry('blog', 'read-seen-2024');
 
 <BaseLayout pageTitle={pageTitle}>
 	<h2>Recently</h2>
-	<BlogLink url={`/blog/${recentPost.slug}`} title={recentPost.data.title}/>
+	<BlogLink url={`/blog/${recentPost?.id}`} title={recentPost?.data.title}/>
 </BaseLayout>
