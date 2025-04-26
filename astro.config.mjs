@@ -1,7 +1,11 @@
 import { defineConfig } from 'astro/config';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://brnwb.com', 
-    prefetch: true,
+  site: 'https://brnwb.com',
+  prefetch: true,
+  vite: {
+    plugins: [tailwindcss()]
+  }
 });
