@@ -1,0 +1,16 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WritingLink from "../components/WritingLink.astro";
+
+const pageTitle = 'Fragments';
+const allFragments = await getCollection("fragments");
+---
+
+<BaseLayout pageTitle={pageTitle}>
+    {
+        allFragments.map((fragment) => (
+            <WritingLink url={`/fragments/${fragment.id}`} title={fragment.data.title} />
+        ))
+    }
+</BaseLayout>

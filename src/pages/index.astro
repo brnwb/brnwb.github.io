@@ -1,13 +1,12 @@
 ---
 import { getEntry } from 'astro:content';
 import BaseLayout from "../layouts/BaseLayout.astro"
-import BlogLink from "../components/BlogLink.astro"
-const pageTitle="Brian Webb"
+import WritingLink from "../components/WritingLink.astro"
 
-const recentPost = await getEntry('blog', 'placeholder');
+const recentPost = await getEntry('articles', 'placeholder');
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-	<h2>Recently</h2>
-	<BlogLink url={`/blog/${recentPost?.id}`} title={recentPost?.data.title}/>
+<BaseLayout>
+	<h2 class="font-bold">Recently</h2>
+	<WritingLink url={`/articles/${recentPost?.id}`} title={recentPost?.data.title}/>
 </BaseLayout>
