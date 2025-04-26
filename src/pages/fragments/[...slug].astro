@@ -1,5 +1,6 @@
 ---
 import { getCollection, render, type CollectionEntry } from 'astro:content';
+import Prose from '../../components/Prose.astro';
 import MarkdownFragmentLayout from '../../layouts/MarkdownFragmentLayout.astro';
 
 export async function getStaticPaths() {
@@ -14,5 +15,7 @@ const { fragment } = Astro.props as { fragment: CollectionEntry<'fragments'> };
 const { Content } = await render(fragment);
 ---
 <MarkdownFragmentLayout frontmatter={fragment.data}>
+  <Prose>
     <Content />
+  </Prose>
 </MarkdownFragmentLayout>
