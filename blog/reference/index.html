@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>International Style — Sample Blog Theme</title>
+    <link rel="stylesheet" href="static/styles.css" />
+  </head>
+  <body>
+    <header>
+      <p class="meta">International Style Blog</p>
+      <h1>High Modernism, Everyday Notes</h1>
+      <nav>
+        <a href="#">Archive</a>
+        <a href="#">Essays</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+      </nav>
+      <p class="theme-selector" hidden>
+        Color scheme:
+        <label><input type="radio" name="theme" value="system" /> <span>auto</span></label>,
+        <label><input type="radio" name="theme" value="light" /> <span>light</span></label>,
+        <label><input type="radio" name="theme" value="dark" /> <span>dark</span></label>.
+        <script>
+          const themeKey = "theme-preference";
+          const storedTheme = localStorage.getItem(themeKey) || "system";
+
+          const selectTheme = (value) => {
+            if (value === "system") {
+              document.documentElement.removeAttribute("data-theme");
+            } else {
+              document.documentElement.setAttribute("data-theme", value);
+            }
+            localStorage.setItem(themeKey, value);
+          };
+
+          document.querySelector(".theme-selector").removeAttribute("hidden");
+          document.querySelectorAll('input[name="theme"]').forEach((input) => {
+            input.checked = input.value === storedTheme;
+            input.addEventListener("change", () => {
+              selectTheme(input.value);
+            });
+          });
+          selectTheme(storedTheme);
+        </script>
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <p class="tag">Feature</p>
+        <h2>The Quiet Authority of Neutral Space</h2>
+        <p class="meta">January 30, 2026 · 7 min read</p>
+        <p>
+          A neutral palette is not an absence; it is a decision. It limits options
+          to make clarity unavoidable. In practice, it means restraint: no gradients,
+          no decorative shadows, and a system that reads like a well-edited report.
+        </p>
+        <p>
+          This sample theme aims for the feeling of a government PDF at midnight —
+          clear, calm, and built for concentration.
+        </p>
+        <p class="accent-block">
+          “International Style is less a look and more a commitment to legibility.”
+        </p>
+      </section>
+
+      <div class="divider"></div>
+
+      <section>
+        <p class="tag">Palette</p>
+        <h3>Olive Accent Swatches</h3>
+        <div class="swatches">
+          <div class="swatch-row">
+            <div class="swatch">
+              <div class="swatch-color" style="background: #2f5d8c"></div>
+              <div class="swatch-label">Current UN-adjacent navy — #2F5D8C</div>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background: #3b6a9e"></div>
+              <div class="swatch-label">Alternate muted navy — #3B6A9E</div>
+            </div>
+          </div>
+          <div class="swatch-row">
+            <div class="swatch">
+              <div class="swatch-color" style="background: #7b8672"></div>
+              <div class="swatch-label">Cooler, grayer olive (sage) — #7B8672</div>
+            </div>
+            <div class="swatch">
+              <div class="swatch-color" style="background: #59624f"></div>
+              <div class="swatch-label">Deeper architectural olive — #59624F</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="grid">
+        <article class="card">
+          <p class="tag">Notebook</p>
+          <h3>Glass, Steel, Paper</h3>
+          <p>
+            Tone is built from contrast. Off-white paper, charcoal text, and a muted
+            blue accent. Everything else is structure.
+          </p>
+          <a href="#">Continue reading</a>
+        </article>
+        <article class="card">
+          <p class="tag">Notes</p>
+          <h3>Spacing as Structure</h3>
+          <p>
+            White space carries the grid. It is the architecture around the words,
+            not the background behind them.
+          </p>
+          <a href="#">Continue reading</a>
+        </article>
+        <article class="card">
+          <p class="tag">Essay</p>
+          <h3>System Over Ornament</h3>
+          <p>
+            A restrained system invites trust: consistent lines, simple rules, and
+            a palette that serves the content.
+          </p>
+          <a class="muted-link" href="#">Continue reading</a>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 International Style Blog · Built for clarity</p>
+    </footer>
+  </body>
+</html>
