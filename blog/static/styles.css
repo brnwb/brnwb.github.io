@@ -39,6 +39,8 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -54,7 +56,7 @@ main,
 footer {
   max-width: 860px;
   margin: 0 auto;
-  padding: 3rem 1.75rem;
+  padding: 1.5rem 1.75rem;
 }
 
 header {
@@ -182,7 +184,7 @@ footer {
 p.theme-selector {
   color: var(--text-secondary);
   font-size: 0.9rem;
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 0;
 }
 
 p.theme-selector input {
