@@ -19,30 +19,21 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [22]
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
         with:
-          version: 10
+          deno-version: v2.x
 
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+      - name: Check
+        run: deno check --frozen scripts/build.ts scripts/dev.ts
 
       - name: Build site
-        run: pnpm run build
+        run: deno run --frozen --allow-read --allow-write --allow-env=NODE_DEBUG_NATIVE,NODE_DISABLE_COMPILE_CACHE,NODE_COMPILE_CACHE_PORTABLE,NODE_COMPILE_CACHE scripts/build.ts
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

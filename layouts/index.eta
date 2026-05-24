@@ -1,0 +1,15 @@
+<%~ it.pageHtml %>
+
+<% if (it.posts.length > 0) { %>
+  <section>
+    <h2>Posts</h2>
+    <ul class="post-list">
+      <% for (const post of it.posts) { %>
+        <li>
+          <time datetime="<%= post.date %>"><%= post.displayDate %></time>
+          <a href="<%= post.url %>"><%= post.title %></a>
+        </li>
+      <% } %>
+    </ul>
+  </section>
+<% } %>
