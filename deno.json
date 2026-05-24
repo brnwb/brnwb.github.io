@@ -1,0 +1,12 @@
+{
+  "tasks": {
+    "check": "deno check scripts/build.ts scripts/dev.ts",
+    "build": "deno run --allow-read --allow-write --allow-env=NODE_DEBUG_NATIVE,NODE_DISABLE_COMPILE_CACHE,NODE_COMPILE_CACHE_PORTABLE,NODE_COMPILE_CACHE scripts/build.ts",
+    "dev": "deno run --allow-read --allow-write --allow-net --allow-env=NODE_DEBUG_NATIVE,NODE_DISABLE_COMPILE_CACHE,NODE_COMPILE_CACHE_PORTABLE,NODE_COMPILE_CACHE scripts/dev.ts"
+  },
+  "imports": {
+    "@std/yaml": "jsr:@std/yaml@1.1.0",
+    "djot": "npm:@djot/djot@0.3.2",
+    "eta": "jsr:@bgub/eta@4.6.0"
+  }
+}
