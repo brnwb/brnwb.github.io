@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+deno_install="${DENO_INSTALL:-$HOME/.deno}"
+deno_bin="$deno_install/bin/deno"
+
+echo "Setting up Deno 2.x..."
+if [[ ! -x "$deno_bin" ]] || [[ "$($deno_bin --version | head -n 1)" != deno\ 2.* ]]; then
+  curl -fsSL https://deno.land/install.sh | DENO_INSTALL="$deno_install" sh
+fi
+
+profile_marker="# brnwb.com Deno environment"
+if ! grep -Fqx "$profile_marker" "$HOME/.bash_profile" 2>/dev/null; then
+  cat >> "$HOME/.bash_profile" <<'EOF'
+
+# brnwb.com Deno environment
+export DENO_INSTALL="$HOME/.deno"
+case ":$PATH:" in
+  *":$DENO_INSTALL/bin:"*) ;;
+  *) export PATH="$DENO_INSTALL/bin:$PATH" ;;
+esac
+EOF
+fi
+
+export DENO_INSTALL="$deno_install"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+echo "Caching locked dependencies..."
+cd "$repo_root"
+deno cache --frozen scripts/build.ts scripts/dev.ts
+
+echo "Orb setup complete."

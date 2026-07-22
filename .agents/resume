@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+export DENO_INSTALL="${DENO_INSTALL:-$HOME/.deno}"
+export PATH="$DENO_INSTALL/bin:$PATH"
+
+if ! command -v deno >/dev/null 2>&1; then
+  echo "Deno is unavailable; rerun .agents/setup." >&2
+  exit 1
+fi
+
+echo "Orb ready: $(deno --version | head -n 1)"
